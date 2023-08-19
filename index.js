@@ -6,12 +6,8 @@ process.title = "Suitability Score";
 
 // Args
 var argv = require('./lib/myyargs');
-var readFile = require('./lib/readFile')
+var getScore = require('./lib/getScore');
 
-if (argv.addresses) {
-    console.log(readFile(argv.addresses))
-}
-
-if (argv.drivers) {
-    console.log(readFile(argv.drivers))
-}
+if (argv.addresses && argv.drivers) {
+    getScore(argv.addresses, argv.drivers);
+} 
