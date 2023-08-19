@@ -1,0 +1,32 @@
+{
+  "name": "suitability-score",
+  "version": "1.0.0",
+  "description": "App that assigns each shipment destination to a given driver while maximizing the total suitability of all shipments to all drivers",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oliveramezquita/suitability-score.git"
+  },
+  "keywords": [
+    "suitability",
+    "addresses",
+    "drivers"
+  ],
+  "author": "Oliver Amezquita Morales",
+  "license": "Unlicense",
+  "bugs": {
+    "url": "https://github.com/oliveramezquita/suitability-score/issues"
+  },
+  "homepage": "https://github.com/oliveramezquita/suitability-score#readme",
+  "dependencies": {
+    "yargs": "^17.7.2"
+  },
+  "preferGlobal": true,
+  "bin-links": true,
+  "bin": {
+    "suitability": "index.js"
+  }
+}
