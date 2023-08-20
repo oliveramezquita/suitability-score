@@ -6,8 +6,8 @@ process.title = "Suitability Score";
 
 // Args
 var argv = require('./lib/myyargs');
-var getScore = require('./lib/getScore');
+var assignAddress = require('./lib/assignAddress');
 
 if (argv.addresses && argv.drivers) {
-    getScore(argv.addresses, argv.drivers);
+    console.log(assignAddress(argv.addresses, argv.drivers));
 } 
