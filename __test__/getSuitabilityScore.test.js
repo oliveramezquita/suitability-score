@@ -1,7 +1,7 @@
 const getSuitabilityScore = require('../lib/getSuitabilityScore');
 
-describe('getSuitabilityScore script', () => {
-    test('should get list of addresses when their length is even', () => {
+describe(`getSuitabilityScore script`, () => {
+    test(`should get list of addresses when their length is even`, () => {
         const addressList = ['Address one'];
         const driversList = ['Driver name'];
 
@@ -19,7 +19,7 @@ describe('getSuitabilityScore script', () => {
         ])
     });
 
-    test('should get list of addresses when their length is odd', () => {
+    test(`should get list of addresses when their length is odd`, () => {
         const addressList = ['Address four'];
         const driversList = ['Driver name'];
 
@@ -37,7 +37,7 @@ describe('getSuitabilityScore script', () => {
         ])
     });
 
-    test('should get list of addresses and suitability score is common factor',
+    test(`should get list of addresses and suitability score is common factor`,
         () => {
             const addressList = ['Address three'];
             const driversList = ['Driver'];

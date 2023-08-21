@@ -1,7 +1,7 @@
 const mock = require('mock-fs')
 const readFile = require('../lib/readFile')
 
-describe('readFile script', () => {
+describe(`readFile script`, () => {
     beforeAll(() => {
         mock({
             'tmp': {
@@ -15,7 +15,7 @@ describe('readFile script', () => {
         mock.restore();
     });
 
-    test('should get an array of strings from a file', async () => {
+    test(`should get an array of strings from a file`, async () => {
         const file = `${process.cwd()}/tmp/file.txt`;
         expect(readFile(file)).toStrictEqual(['Address one']);
     })
@@ -36,7 +36,7 @@ describe('readFile script', () => {
             expect(processExit).toHaveBeenCalledWith(1);
         });
 
-    test('should get an error when the file does not exist', async () => {
+    test(`should get an error when the file does not exist`, async () => {
         const file = `${process.cwd()}/tmp/non-existent-file.txt`;
         const consoleErrorSpy = jest
             .spyOn(console, 'error')

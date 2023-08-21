@@ -1,7 +1,7 @@
 const mock = require('mock-fs')
 const assignAddress = require('../lib/assignAddress');
 
-describe('assignAddress file', () => {
+describe(`assignAddress file`, () => {
     beforeAll(() => {
         mock({
             'tmp': {
