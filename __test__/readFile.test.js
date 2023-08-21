@@ -5,22 +5,39 @@ describe('readFile script', () => {
     beforeAll(() => {
         mock({
             'tmp': {
-                'item-addresses.txt': 'Address one'
+                'file.txt': "Address  one",
+                'json-file.json': "['Adress one']"
             }
         })
     });
 
     afterAll(() => {
         mock.restore();
-    })
+    });
 
     test('should get an array of strings from a file', async () => {
-        const file = `${process.cwd()}/tmp/item-addresses.txt`;
-        expect(readFile(file)).toStrictEqual(expect.any(Array));
+        const file = `${process.cwd()}/tmp/file.txt`;
+        expect(readFile(file)).toStrictEqual(['Address one']);
     })
 
+    test(`you should get a warning when the file does not have the 'txt' extension`,
+        async () => {
+            const jsonFile = `${process.cwd()}/tmp/json-file.json`;
+            const consoleWarnSpy = jest
+                .spyOn(console, 'warn')
+                .mockImplementation(() => { });
+            const processExit = jest
+                .spyOn(process, 'exit')
+                .mockImplementation(() => { });
+
+            readFile(jsonFile);
+
+            expect(consoleWarnSpy).toHaveBeenCalled();
+            expect(processExit).toHaveBeenCalledWith(1);
+        });
+
     test('should get an error when the file does not exist', async () => {
-        const file = `${process.cwd()}/tmp/item-drivers.txt`;
+        const file = `${process.cwd()}/tmp/non-existent-file.txt`;
         const consoleErrorSpy = jest
             .spyOn(console, 'error')
             .mockImplementation(() => { });
@@ -30,7 +47,9 @@ describe('readFile script', () => {
         const processExit = jest
             .spyOn(process, 'exit')
             .mockImplementation(() => { });
+
         readFile(file);
+
         expect(consoleErrorSpy).toHaveBeenCalled();
         expect(consoleWarnSpy).toHaveBeenCalled();
         expect(processExit).toHaveBeenCalledWith(1);
