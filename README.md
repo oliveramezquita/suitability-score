@@ -4,18 +4,26 @@ App that assigns each shipment destination to a given driver while maximizing th
 ## Requirements
 - [Node.js](https://nodejs.org/)
 
+## Getting the app
+
+You can get this app from [github](https://github.com/oliveramezquita/suitability-score)
+
+To install all dependencies with npm you need to run:
+
+```bash
+# npm install
+```
+
 ## Runing the app
 
-First of all you need to run `npm install` to install all necessary dependencies.
-
-The app was though to run with the command
+The app was though to run with the command:
 ```bash
 # node app.js --addresses path/to/list-addresses-file.txt --drivers path/to/list-drivers-file.txt
 ```
 
 ## Test
 
-To perform the tests it is necessary to run the following command
+To perform the tests it is necessary to run the following command:
 ```bash
 # npm test
 ```
